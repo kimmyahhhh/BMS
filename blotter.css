@@ -1,0 +1,13 @@
+body { background: #f6f6f5; font-family: Helvetica, Arial, sans-serif;font-weight: 400; color: #000;}
+#btnCancel { display: block; margin: 0 auto; }
+.HideModal { display: none; }
+#modalMsg { width: 200px; height: 300px; border-radius:20px; border: 1px solid #000; color: Red;}
+.OverlayEffect { background-color: black; filter: alpha(opacity=70); opacity: 0.7; width: 100%; height: 100%; z-index: 400; position: absolute; top: 0; left: 0; }
+.ShowModal { top: 50px; left: 50px; z-index: 1000; position: absolute; background-color: White; display: block; }
+#submitButton, #btnCancel { font-size: 18px; font-weight: bold; background: #0B1E7D; color: #fff; padding: 5px; border-radius: 8px; width: 30%; height: auto; }
+@media (max-width: 640px) {
+    #submitButton, #btnCancel { width: 70%; }
+}
+@media (min-width: 641px) and (max-width: 767px) {
+    #submitButton, #btnCancel { width: 50%; }
+}

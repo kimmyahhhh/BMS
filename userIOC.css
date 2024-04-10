@@ -1,0 +1,102 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #333;
+    color: #ffffff;
+    padding: 1em;
+    text-align: center;
+}
+
+/* sidebar */
+.sidebar {
+    position: fixed;
+    top: 60px;
+    width: 260px;
+    height: calc(100% - 60px);
+    background: #ff951c;
+    overflow-x: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+    .sidebar ul {
+        margin-top: 20px;
+    }
+
+        .sidebar ul li {
+            width: 100%;
+            list-style: none;
+        }
+
+            .sidebar ul li:hover {
+                background: #fff;
+            }
+
+                .sidebar ul li:hover a {
+                    color: #ff951c;
+                }
+
+            .sidebar ul li a {
+                width: 100%;
+                text-decoration: none;
+                color: #fff;
+                height: 60px;
+                display: flex;
+                align-items: center;
+            }
+
+                .sidebar ul li a i {
+                    min-width: 60px;
+                    font-size: 24px;
+                    text-align: center;
+                }
+
+section.certificate-generator {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2em;
+    background-color: #ff951c;
+    border: 1px solid #dddddd;
+    border-radius: 1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section.certificate-generator h1 {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+section.certificate-generator label {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+section.certificate-generator input[type="text"],
+section.certificate-generator select {
+    width: 100%;
+    padding: 0.5em;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section.certificate-generator button[type="submit"] {
+    width: 100%;
+    padding: 0.5em;
+    font-size: 1rem;
+    background-color: green;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.25em;
+    cursor: pointer;
+}
+
+section.certificate-generator button[type="submit"]:hover {
+    background-color: #666;
+}
+

@@ -1,0 +1,101 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0">
+    <meta name="author" content="incaseofcrisis.com" />
+    <link rel="stylesheet" href="css/ir.css" />
+    
+    
+    <title>Blotter Report</title>
+    <img src="/K/H.jpg"
+    width="120px" height="110px"
+    
+    </head>
+    
+    
+<body>
+  <center><h3> BARANGAY BLOTTER REPORT </h3></center>
+                <p>
+                <b>Current Time</b>: <input type="text" id="ICORF_DeviceTime" name="ICORF_DeviceTime" value="" /><br>
+                </p>
+            <div style="font-size: 90%;">
+            <p><strong>
+              Location of Incident
+            </strong>:
+            <br/>
+            <input id="txtLocation"
+            name=txtLocation style= "width: 50%; font-size: 110%; "type="text" /></p>
+ 
+ <p><strong>
+              Name of Victim(s)
+            </strong>:
+            <br/>
+            <input id="txtName"
+            name=txtName style= "width: 50%; font-size: 110%; "type="text" /></p>
+            
+ <p><strong>
+              Age
+            </strong>:
+            <br/>
+            <input id="txtAge"
+            name=txtAge style= "width: 10%; font-size: 110%; "type="text" /></p>
+            
+ <p><strong>
+              Sex
+            </strong>:
+            <br/>
+            <input id="txtSex"
+            name=txtSex style= "width: 10%; font-size: 110%; "type="text" /></p>
+             <p><strong>
+              Type of Incident 
+            </strong>:
+            <br/>
+            <input name="IncidentType"
+            type="checkbox" value="Physical "/> Physical<br/>
+            <input name="IncidentType"
+            type="checkbox" value="Relational"/> Relational<br/>
+            <input name="IncidentType"
+            type="checkbox" value="Verbal"/> Verbal<br/>
+            
+            <p><strong>Reported by</strong>:
+                    <br />
+                    <input name="Reportedby" style="width: 50%; font-size: 110%;" type="text" />
+                </p>
+                
+                 <p><strong>Describe the Incident</strong>:
+                    <br />
+                    <textarea name="Description" rows="12" style="width: 95%; font-size: 110%;"></textarea>
+                </p>
+            <p><strong>Physical Evidence:</strong>
+                    <br />
+                    <input name="PhysicalEvidence" type="checkbox" value="Notes" /> Notes
+                    <input name="PhysicalEvidence" type="checkbox" value="Email" /> Email
+                    <input name="PhysicalEvidence" type="checkbox" value="Video_Audio" /> Video/Audio
+                    <br/>
+                    <input name="PhysicalEvidence" type="checkbox" value="Other" /> Other:
+                    <input name="PhysicalEvidenceOtherExplain" style="width: 25%; font-size: 110%;" type="text" />
+                </p>
+
+                <p><strong>Upload a photo of the Incident:</strong>
+                    <br />
+                    <input accept="image/*" capture="camera" name="fileUpload" type="file" />
+                </p>
+            </div>
+            
+            <p id="message">
+
+            </p>
+           
+            <p style="text-align: center;">
+                <button id="submitButton" name="submitButton" type="button" onclick="decideDisplayModal(); return false();">
+                    Submit This Report</button>
+                    
+                    <button id="PRINTButton"a title="print screen" alt="print screen"onclick="uindov.print () :"target= blank"style="cur sor : pointer; ">PRINT</button>
+
+
+       
+            </p>
+</div>
+    </form>
+</body>
+</html>

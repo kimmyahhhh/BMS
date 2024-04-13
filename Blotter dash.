@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+ <html>
+     <head>
+         <meta charset="utf-8"> 
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <!-- My CSS -->
+           <link rel="stylesheet" href="styles.css">
+      
+      <title>BMS</title>
+      </head>
+
+<body>
+    <body>
+    <form id="form1" runat="server">
+        <div class="container">
+        <div class="topbar">
+            <div class="logo">
+                <h2>BMS</h2>
+            </div>
+            <div class="search">
+                <asp:TextBox ID="search" runat="server" type="text" placeholder="Search"></asp:TextBox>
+                <label for="search"><i class="fas fa-search"></i></label>
+            </div>
+            <i class="fas fa-bell"></i>
+            <div class="user">
+                <img src="img/user.png" alt="">
+            </div>
+        </div>
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-th-large"></i>
+                        <div>Dashboard</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="res_record.aspx">
+                        <i class="fas fa-user-friends"></i>
+                        <div>Resident Records</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-home"></i>
+                        <div>Household Records</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                      <i class="fas fa-layer-group"></i>
+                        <div>Blotters</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-chart-bar"></i>
+                        <div>Analytics</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <div>Earnings</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-cog"></i>
+                        <div>Settings</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-question"></i>
+                        <div>Help</div>
+	<div class="side-menu"></div>
+	<div class="blotter-name">
+		<h1>Blotter</h1>
+	</div>
+	<div class="Container">
+		<div class="header">
+			<div class="nav">
+				<div class="search">
+			<input type="text" placeholder="Search..">
+			<button type="submit"><img src="search.png" alt="cha"></button>
+		</div>
+		<div class="user">
+			<a href="#" class="btn">+ Blotter</a>
+			<div class="img-case">
+				<img src="brngy.png" alt="cha">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="content">
+	<div class="cards">
+		<div class="card">
+			<div class="box">
+				<h1>4</h1>
+				<h2>Active Case</h2>
+			</div>
+			<div class="icon-case">
+				<img src="active.png"alt="cha">
+			</div>
+		</div>
+		<div class="card">
+			<div class="box">
+				<h1>5</h1>
+				<h2>Settled Case</h2>
+			</div>
+			<div class="icon-case">
+				<img src="done.png" alt="cha">
+			</div>
+		</div>
+		<div class="card">
+			<div class="box">   
+   			    
+				<h1>2</h1>
+				<h2>Scheduled Case</h2>
+			</div>
+			<div class="icon-case">
+				<img src="schedule.png" alt="cha">
+			</div>
+		</div>
+	</div>
+	<div class="content-2">
+	      <div class="Records">
+	          <p><table>
+		<tr>
+			<th>Loc. of incident</th>
+			<th>Name of victims</th>
+			<th>Describe the incident</th>
+			<th>Reported by:</th>
+			<th>Date of incident</th>
+			<th>Status</th>
+			<th>Types of incident</th>
+		</tr>
+		<tr>
+			<td>Narvacan 2</td>
+			<td>Ronald Gian</td>
+			<td>Binugbog</td>
+			<td>Ronald Gian</td>
+			<td>03/20/2024</td>
+			<td><a href="#" class="btn">Active</td>
+       </tr>
+       <tr>
+			<td>Narvacan 2</td>
+			<td>Karla Lina</td>
+			<td>Ninakawan</td>
+			<td>Karla Lina</td>
+			<td>03/21/2024</td>
+			<td><a href="#" class="btn">Active</td>
+       </tr>
+       <tr>
+			<td>Narvacan 2</td>
+			<td>Kimberly Rafael</td>
+			<td>Sinaksak</td>
+			<td>Kimberly Rafael</td>
+			<td>03/24/2024</td>
+			<td><a href="#" class="btn">Active</td>
+       </tr>
+       <tr>
+			<td>Narvacan 2</td>
+			<td>Von Mamaid</td>
+			<td>Ninakawan ng Mangga</td>
+			<td>Von Mamaid</td>
+			<td>03/24/2024</td>
+			<td><a href="#" class="btn">Active</td>
+       </tr></p
+	      </div>
+	      <div class="title">
+		<h1>Records</h1>
+		<a href="#" class="btn"> View All</a>
+	</div>
+</div>
+</div>
+</body>
+</html>
+</head>
+
+
+</body>
+</html>

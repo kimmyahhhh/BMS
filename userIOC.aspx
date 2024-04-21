@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="IssuanceOfCertificates.aspx.cs" Inherits="IssuanceOfCertificates" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="IssuanceOfCertificates.aspx.cs" Inherits="bms.userIOC" %>
 
 <!DOCTYPE html>
 

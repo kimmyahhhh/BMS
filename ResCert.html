@@ -1,0 +1,92 @@
+<!DOCTYPE>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Certificate of Residency</title>
+	 <link rel="stylesheet" href="ResCert.css">
+</head>
+<body>
+	<img src="lahhh.png" alt="Watermark" class="water">
+	<!---<div class="watermark">
+	<img src="itu.png" alt="watermark">------>
+	<div class="certificate">
+		<!----<img src="logo.png" alt="Logo" class="logo">----->
+		<div class="text">
+			<img src="hehe.PNG" alt="Logo" class="logo" >
+		<img src="logs.png" alt="Logo" class="huhu">
+			<p>Republic of the Philippines</p>
+			<p>Province of Nueva Ecija</p>
+			<p>Municipality of Guimba</p>
+			<br>
+		</div>
+		<div class="content">
+			<h2>OFFICE OF THE BARANGAY CAPTAIN</h2>
+			<h3>BARANGAY NARVACAN II</h3>
+			<br>
+		</div>
+		<div class="lahh">
+			<h4>BARANGAY RESIDENCY</h4>
+			<br>
+		</div>
+		<div class="cont">
+			<p>To whom it my concern:</p>
+			<p>This is to certify that <span class="name"></span>, <span class="age"></span> years old is a resident of this barangay, particularly in <span class="zone"></span>, Brgy. Narvacan II, Guimba, Nueva Ecija, since <span class="birthday"></span> up to present <span class="year"></span> with <span class="age"></span> years of residency.</p>
+			<p>This is issued upon the request for any legal purposes it may serve.</p>
+			<br>
+			<p>Issued this <span class="day"></span> day of <span class="month"></span> <span class="year"></span>.</p>
+			<br>
+			<br>
+		</div>
+		<div class="footer">
+			<p>PREPARED BY:</p>
+			<br>
+			<!-----<p><span class="secretary_name"></span></p>----->
+			<p style="text-decoration: underline;"><b>KIMBERLY RAFAEL</b><p>
+			<p>Brgy. Secretary</p>
+			<br>
+		</div>
+		<div class="foot">
+			<p>APPROVED BY:</p>
+			<br>
+			<!---------<p><span class="brgy_captain_name"></span></p>------->
+			<p style="text-decoration:underline;"><b>VON MAMAID</b></p>
+			<p>Barangay Captain</p>
+			<br>
+		</div>
+		<div class="note">
+			<br>
+			<p>Not Valid Without Dry Seal</p>
+		</div>
+	</div>
+	
+	<button onclick="window.print()">Print Certificate</button>
+	
+	<script>
+	  window.onload = function() {
+	    window.print();
+	  };
+	</script>
+
+<!-------ito na connection sa db :>, change mo na lang yung user,tblname ganun ganun d ko alam tbl natin hehe------------>
+<!-------wala pang connection sa asp to :< ------------>
+	<script>
+		var conn = new MySqlConnection("server=localhost;user=root;password=password;database=mydb");
+		conn.Open();
+		var cmd = new MySqlCommand("SELECT * FROM mytable WHERE id = 1", conn);
+		var reader = cmd.ExecuteReader();
+		while (reader.Read()) {
+			document.getElementById("name").innerHTML = reader["name"].ToString();
+			document.getElementById("age").innerHTML = reader["age"].ToString();
+			document.getElementById("zone").innerHTML = reader["zone"].ToString();
+			document.getElementById("birthday").innerHTML = reader["birthday"].ToString();
+			document.getElementById("year").innerHTML = reader["year"].ToString();
+		}
+
+		reader.Close();
+		conn.Close();
+	</script>
+
+</body>
+</html>

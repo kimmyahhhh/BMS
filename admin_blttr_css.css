@@ -1,6 +1,6 @@
-﻿
+
 body.modal-open {
-    overflow: hidden; /* Prevent scrolling when modal is open */
+    overflow: hidden; 
 }
 
 * {
@@ -128,8 +128,9 @@ img {
     width: 80%;
     padding: 35px 20px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 70px;
+    margin-top: 28px;
 }
 
     .cards .card {
@@ -141,11 +142,10 @@ img {
         border-radius: 10px;
         box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
         width: 100%;
-       
     }
 
 .number {
-    font-size: 35px;
+    font-size: 30px;
     font-weight: 500;
     color: #ff951c;
 }
@@ -161,7 +161,6 @@ img {
 }
 /* charts */
 .charts {
-   
     align-content: center;
     width: 80%;
     padding: 20px;
@@ -181,7 +180,6 @@ img {
     border-radius: 10px;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
     width: 100%;
-
 }
 
 @media (max-width:1115px) {
@@ -210,13 +208,10 @@ img {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 30px;
-
     }
 
     .charts {
         grid-template-columns: 1fr;
-
-
     }
 }
 
@@ -288,10 +283,10 @@ img {
     filter: opacity: .7;
 }
 
-GridView1 {
+.tb {
     position: relative;
     z-index: 2;
-    transform: translate(-50%,-50%);
+    /*transform: translate(-50%,-50%);*/
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
@@ -323,7 +318,7 @@ tr {
         background-color: #eeeeee;
     }
 
-.btnBltrModal2 {
+/*.btnBltrModal2 {
     border-style: none;
     border-color: inherit;
     border-width: medium;
@@ -335,7 +330,7 @@ tr {
     text-transform: uppercase;
     cursor: pointer;
     position: relative;
-}
+}*/
 
 
 .btnBltrModal3 {
@@ -359,8 +354,8 @@ tr {
     width: 70px;
     height: 25px;
     border-radius: 10px;
-    background: #FAE355;
-    color: #fff;
+    /*background: #FAE355;*/
+    background: #088F8F;
     text-transform: uppercase;
     cursor: pointer;
     position: relative;
@@ -375,7 +370,7 @@ tr {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    background: rgba(0, 0, 0, 0.5); 
     z-index: 2;
 }
 
@@ -384,14 +379,14 @@ tr {
     position: fixed;
     z-index: 3;
     left: 50%;
-    top: 50%;
+    top: 36%;
     transform: translate(-50%, -50%);
-    width: 700px; /* Changed width */
-    height: 400px; /* Height remains the same */
+    width: 700px; 
+    height: 450px; 
     background-color: white;
     border: 1px solid #888;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    overflow: auto; /* Add overflow in case content overflows */
+    overflow: auto; 
 }
 
 .modal-content {
@@ -405,22 +400,30 @@ tr {
 }
 
 .form-group {
-    width: 48%; /* Adjust the width to fit two columns */
+    width: 48%; 
     margin-bottom: 15px;
 }
 
     .form-group label {
         display: block;
         margin-bottom: 5px;
-        color: #707070; /* Change label font color */
+        color: #707070; 
     }
 
     .form-group input[type="text"],
     .form-group input[type="date"] {
-        width: calc(100% - 16px); /* Match the width of textboxes */
+        width: calc(100% - 16px); 
         padding: 8px;
         box-sizing: border-box;
-        color: #707070; /* Change textbox font color */
+        color: #707070; 
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="time"] {
+        width: calc(100% - 16px); 
+        padding: 8px;
+        box-sizing: border-box;
+        color: #707070; 
     }
 
 .button-container {
@@ -430,18 +433,32 @@ tr {
 }
 
 #submitButton {
-    width: 80%;
+    border-style: none;
+    border-color: inherit;
+    border-width: medium;
     padding: 10px;
-    background-color: #ff951c; /* Change button background color */
-    color: #fff; /* Change button text color */
-    border: none;
-    border-radius: 50px; /* Change button border radius */
+    background-color: #ff951c; 
+    color: #fff; 
+    border-radius: 50px; 
     cursor: pointer;
+    width: 80%;
 }
 
-    #submitButton:hover {
-        background-color: #e08500; /* Change button background color on hover */
-    }
+#btnSetActive {
+    border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    padding: 10px;
+    background-color: #ff951c; 
+    color: #fff; 
+    border-radius: 50px; 
+    cursor: pointer;
+    width: 80%;
+}
+
+#submitButton:hover {
+    background-color: #e08500; 
+}
 
 .close {
     color: #aaa;
@@ -459,8 +476,7 @@ tr {
 
 h2 {
     color: white;
-    margin:auto;
- 
+    margin: auto;
 }
 
 .modh {

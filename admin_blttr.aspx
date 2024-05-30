@@ -358,7 +358,7 @@
                     alert('An error occurred while adding user: ' + xhr.responseText);
                 }
             }); --%>
-        }
+        
          <%--View report modal script --%>
 
         function showModal2() {

@@ -95,51 +95,51 @@
                     <div class="project-item">
                         <div class="project-info">
                             <h1>Project 1</h1>
-                            <h2>Coding is Love</h2>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
+                            <h2>Barangay Clean Up Drive Project</h2>
+                            <p>Community based initiative that seeks to preserve the barangay’s cleanliness and aesthetic appeal through routine waste disposal, garbage collection, and environmental awareness campaigns in which the local populace is actively involved.</p>
                         </div>
                         <div class="project-img">
-                            <img src="./img/img-1.png" alt="img">
+                            <img src="https://raw.githubusercontent.com/kimmyahhhh/BMS/c74d6df6f1877af80d9177999eb10173d7d5ec97/cud%20.jpg" alt="img">
                         </div>
                     </div>
                     <div class="project-item">
                         <div class="project-info">
                             <h1>Project 2</h1>
-                            <h2>Coding is Love</h2>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
+                            <h2>Barangay Waste Management Project</h2>
+                            <p>and a cleaner, healthier community, the Barangay Waste Management Project aims to build Effective and sustainable garbage collection, segregation, and disposal systems within the barangay.</p>
                         </div>
                         <div class="project-img">
-                            <img src="./img/img-1.png" alt="img">
+                            <img src="https://raw.githubusercontent.com/kimmyahhhh/BMS/c74d6df6f1877af80d9177999eb10173d7d5ec97/wmp%20.JPG" alt="img">
                         </div>
                     </div>
                     <div class="project-item">
                         <div class="project-info">
                             <h1>Project 3</h1>
-                            <h2>Coding is Love</h2>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
+                            <h2>Barangay Food Security and Nutrition Project</h2>
+                            <p>By creating community vegetable gardens, giving fruit tree seedlings to homes, and holding nutrition education workshops for moms, the Barangay Food Security and Nutrition Project seeks to enhance the community’s nutritional health and food security.</p>
                         </div>
                         <div class="project-img">
-                            <img src="./img/img-1.png" alt="img">
+                            <img src="https://raw.githubusercontent.com/kimmyahhhh/BMS/c74d6df6f1877af80d9177999eb10173d7d5ec97/fsn%20.JPG" alt="img">
                         </div>
                     </div>
                     <div class="project-item">
                         <div class="project-info">
                             <h1>Project 4</h1>
-                            <h2>Coding is Love</h2>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
+                            <h2>Barangay Livelihood and Skills Training Project</h2>
+                            <p>Provides a range of courses and programs aimed at providing community members with the necessary information and skills to start or grow small businesses and enhance their economic prospects.</p>
                         </div>
                         <div class="project-img">
-                            <img src="./img/img-1.png" alt="img">
+                            <img src="https://raw.githubusercontent.com/kimmyahhhh/BMS/c74d6df6f1877af80d9177999eb10173d7d5ec97/llst.JPG" alt="img">
                         </div>
                     </div>
                     <div class="project-item">
                         <div class="project-info">
                             <h1>Project 5</h1>
-                            <h2>Coding is Love</h2>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
+                            <h2>Barangay Youth Development Project</h2>
+                            <p>Centered on planning sports, leisure, and educational events for kids and teenager in order to promote their development as individuals, as leaders, and as members of the community.</p>
                         </div>
                         <div class="project-img">
-                            <img src="./img/img-1.png" alt="img">
+                            <img src="https://raw.githubusercontent.com/kimmyahhhh/BMS/c74d6df6f1877af80d9177999eb10173d7d5ec97/ydp.JPG" alt="img">
                         </div>
                     </div>
                 </div>

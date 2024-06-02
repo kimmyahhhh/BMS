@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>BMS Home</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="home1.css">
 </head>
@@ -15,7 +15,7 @@
             <div class="header container">
                 <div class="nav-bar">
                     <div class="branded">
-                        <a href="#home">
+                        <a href="#home" style="text-decoration: none; cursor: pointer;">
                             <h2>BMS</h2>
                             <img src="images/bmslogo.jpg">
                         </a>
@@ -99,37 +99,37 @@
                             <p>Community based initiative that seeks to preserve the barangay’s cleanliness and aesthetic appeal through routine waste disposal, garbage collection, and environmental awareness campaigns in which the local populace is actively involved.</p>
                         </div>
                         <div class="project-img">
-                            <img src="https://raw.githubusercontent.com/kimmyahhhh/BMS/c74d6df6f1877af80d9177999eb10173d7d5ec97/cud%20.jpg" alt="img">
+                            <img src="images/proj3.jpg" alt="img">
                         </div>
                     </div>
                     <div class="project-item">
                         <div class="project-info">
                             <h1>Project 2</h1>
-                            <h2>Barangay Waste Management Project</h2>
-                            <p>and a cleaner, healthier community, the Barangay Waste Management Project aims to build Effective and sustainable garbage collection, segregation, and disposal systems within the barangay.</p>
+                            <h2>Barangay Food Security and Nutrition Project</h2>
+                            <p>By creating community vegetable gardens, giving fruit tree seedlings to homes, and holding nutrition education workshops for moms, the Barangay Food Security and Nutrition Project seeks to enhance the community’s nutritional health and food security.</p>
                         </div>
                         <div class="project-img">
-                            <img src="https://raw.githubusercontent.com/kimmyahhhh/BMS/c74d6df6f1877af80d9177999eb10173d7d5ec97/wmp%20.JPG" alt="img">
+                            <img src="images/proj2.jpg" alt="img">
                         </div>
                     </div>
                     <div class="project-item">
                         <div class="project-info">
                             <h1>Project 3</h1>
-                            <h2>Barangay Food Security and Nutrition Project</h2>
-                            <p>By creating community vegetable gardens, giving fruit tree seedlings to homes, and holding nutrition education workshops for moms, the Barangay Food Security and Nutrition Project seeks to enhance the community’s nutritional health and food security.</p>
+                            <h2>Barangay Livelihood and Skills Training Project</h2>
+                            <p>Provides a range of courses and programs aimed at providing community members with the necessary information and skills to start or grow small businesses and enhance their economic prospects.</p>
                         </div>
                         <div class="project-img">
-                            <img src="https://raw.githubusercontent.com/kimmyahhhh/BMS/c74d6df6f1877af80d9177999eb10173d7d5ec97/fsn%20.JPG" alt="img">
+                            <img src="images/proj1.jpg" alt="img">
                         </div>
                     </div>
                     <div class="project-item">
                         <div class="project-info">
                             <h1>Project 4</h1>
-                            <h2>Barangay Livelihood and Skills Training Project</h2>
-                            <p>Provides a range of courses and programs aimed at providing community members with the necessary information and skills to start or grow small businesses and enhance their economic prospects.</p>
+                            <h2>Barangay Waste Management Project</h2>
+                            <p>A cleaner, healthier community, the Barangay Waste Management Project aims to build Effective and sustainable garbage collection, segregation, and disposal systems within the barangay.</p>
                         </div>
                         <div class="project-img">
-                            <img src="https://raw.githubusercontent.com/kimmyahhhh/BMS/c74d6df6f1877af80d9177999eb10173d7d5ec97/llst.JPG" alt="img">
+                            <img src="images/proj4.jpg" alt="img">
                         </div>
                     </div>
                     <div class="project-item">
@@ -139,7 +139,7 @@
                             <p>Centered on planning sports, leisure, and educational events for kids and teenager in order to promote their development as individuals, as leaders, and as members of the community.</p>
                         </div>
                         <div class="project-img">
-                            <img src="https://raw.githubusercontent.com/kimmyahhhh/BMS/c74d6df6f1877af80d9177999eb10173d7d5ec97/ydp.JPG" alt="img">
+                            <img src="images/proj5.jpg" alt="img">
                         </div>
                     </div>
                 </div>
@@ -152,11 +152,11 @@
             <div class="about container">
                 <div class="col-left">
                     <div class="about-img">
-                        <img src="./img/img-2.png" alt="img">
+                        <img src="images/bms-about.jpg" alt="img">
                     </div>
                 </div>
                 <div class="col-right">
-                    <h1 class="section-title">About <span>me</span></h1>
+                    <h1 class="section-title">About <span>us</span></h1>
                     <p>The Barangay Management System (BMS) is a powerful and feature-rich software solution developed to streamline and optimize the administrative activities of Philippine barangays. It includes a centralized resident database, incident and blotter administration, event and activity tracking, and a certificate generation tool. This method attempts to improve efficiency, transparency, and community engagement among barangay authorities and staff. Barangay officials can use this all-encompassing solution to improve service delivery, boost data-driven decision making, and develop deeper relationships with their constituents. The Comprehensive Barangay Management System is intended to be user-friendly, scalable, and adaptable to the specific requirements of each barangay.</p>
                 </div>
             </div>
@@ -211,10 +211,7 @@
                     </div>
                     <div class="social-item">
                         <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/instagram-new.png" /></a>
-                    </div>
-                    <div class="social-item">
-                        <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/twitter.png" /></a>
-                    </div>
+                    </div>                   
                 </div>
                 <p>Copyright © 2024 BMS. All rights reserved</p>
             </div>

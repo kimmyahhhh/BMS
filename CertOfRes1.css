@@ -1,0 +1,86 @@
+﻿.water {
+    position: absolute;
+    top: 280;
+    left: 90;
+    width: 80%;
+    height: 50%;
+    opacity: 0.1;
+}
+
+.certificate {
+    margin-top: -30px;
+    width: 8.5in;
+    height: 11.3in;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    font-family: 'Times New Roman', serif;
+}
+
+.logo {
+    float: left;
+    margin-top: -20px;
+    height: 2.90cm;
+    width: 2.90cm;
+    margin-left: 110px;
+}
+
+.huhu {
+    float: right;
+    margin-top: -27px;
+    height: 3.30cm;
+    width: 3.30cm;
+    margin-right: 110px;
+}
+
+.text {
+    font-size: 18px;
+    line-height: .5;
+    text-align: center;
+}
+
+.content {
+    clear: both;
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1;
+    text-align: center;
+}
+
+.cont {
+    clear: both;
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
+    color: black;
+}
+
+.lahh {
+    clear: both;
+    font-size: 20px;
+    line-height: 1;
+    text-align: center;
+    color: black;
+}
+
+.footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.foot {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.note {
+    margin-top: 20px;
+    text-align: right;
+}
+ 
+p{
+    font-size: 20px;
+}

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="blotter.aspx.cs" Inherits="bms.blotter" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="blotter.aspx.cs" Inherits="blotter.blotter" %>
 
 <!DOCTYPE html>
 
@@ -6,7 +6,7 @@
 <head runat="server">
     <title>Admin Blotter</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="blotters.css">
+    <link rel="stylesheet" href="blotters.css"/>
     <style>
         .modal {
             display: none;
@@ -20,7 +20,6 @@
             background-color: rgb(0,0,0); /* Fallback color */
             background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
         }
-
         .modal-content {
             background-color: #fefefe;
             margin: 5% auto; /* 15% from the top and centered */
@@ -31,7 +30,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow for better visibility */
             overflow: hidden;
         }
-
         .modal-header {
             display: flex;
             justify-content: space-between;
@@ -42,24 +40,20 @@
             border-top-left-radius: 8px; /* Rounded corners for the header */
             border-top-right-radius: 8px; /* Rounded corners for the header */
         }
-
         .modal-header h2 {
             margin: 0; /* Remove margin to keep header title aligned */
         }
-
         .close {
             color: white; /* Changed color to white to match header */
             font-size: 28px;
             font-weight: bold;
             cursor: pointer;
         }
-
         .close:hover,
         .close:focus {
             color: black; /* Slightly lighter color on hover */
             text-decoration: none;
         }
-
         .modal-content .res_data .form-control {
             position: relative;
             height: 30px;
@@ -72,11 +66,9 @@
             border-radius: 6px;
             padding: 0 15px;
         }
-
         .res_data {
             margin: 15px 20px;
         }
-
         .notification-dropdown {
             position: absolute;
             background-color: white;
@@ -86,12 +78,10 @@
             height: 75px;
             z-index: 1;
         }
-
         .notification-item {
             padding: 10px;
             border-bottom: 1px solid #ddd;
         }
-
         .notification-item:hover {
             background-color: #f1f1f1;
         }
@@ -102,7 +92,6 @@
                 document.getElementById(mbox).innerText = '';
             }, delay);
         }
-
         function toggleNotifications() {
             var dropdown = document.getElementById("notificationDropdown");
             if (dropdown.style.display === "none" || dropdown.style.display === "") {
@@ -111,7 +100,6 @@
                 dropdown.style.display = "none";
             }
         }
-
         // Close the dropdown if clicked outside
         window.onclick = function(event) {
             if (!event.target.matches('.notification, .notification *')) {
@@ -124,16 +112,13 @@
                 }
             }
         }
-
         function openModal() {
             document.getElementById("viewdetailsModal").style.display = "block";
         }
-
         function closeModal() {
             document.getElementById("viewdetailsModal").style.display = "none";
         }
-
-        $(document).ready(function () {
+       <%-- $(document).ready(function () {
             var timeout;
             $('#<%= search.ClientID %>').on('input', function () {
                 clearTimeout(timeout);
@@ -141,7 +126,7 @@
                     __doPostBack('<%= search.UniqueID %>', '');
                 }, 500);
             });
-        });    
+        });    --%>
     </script>
 </head>
 <body>
@@ -155,7 +140,7 @@
                 </a>
             </div>
             <div class="search">
-                <asp:TextBox ID="search" runat="server" type="text" placeholder="Search"></asp:TextBox>
+                <asp:TextBox ID="search" runat="server" type="text" placeholder="Search" AutoPostBack="True" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
                 <label for="search"><i class="fas fa-search"></i></label>
             </div>
             <div class="notification" onclick="toggleNotifications()">
@@ -234,7 +219,9 @@
                         <div class="card-name">Scheduled</div>
                     </div>
                     <div class="icon-box">
+                        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="lnkPending_Click">
                         <i class="fas fa-clock"></i>
+                        </asp:LinkButton>
                     </div>
                 </div>
                 <div class="card">
@@ -242,8 +229,10 @@
                         <asp:Label ID="activeCount" class="number" runat="server"></asp:Label>
                         <div class="card-name">Active</div>
                     </div>
-                    <div class="icon-box">
+                    <div class="icon-box">                       
+                        <asp:LinkButton ID="lnkActive" runat="server" OnClick="lnkActive_Click">
                         <i class="fas fa-tasks"></i>
+                        </asp:LinkButton>
                     </div>
                 </div>
                 <div class="card">
@@ -251,8 +240,10 @@
                         <asp:Label ID="settledCount" class="number" runat="server"></asp:Label>
                         <div class="card-name">Settled</div>
                     </div>
-                    <div class="icon-box">
+                    <div class="icon-box">                       
+                        <asp:LinkButton ID="lnkEnded" runat="server" OnClick="lnkEnded_Click">
                         <i class="fas fa-badge-check"></i>
+                        </asp:LinkButton>
                     </div>
                 </div>
             </div>
@@ -262,27 +253,31 @@
                       <asp:Button ID="reqModalbtn" Class="tab_btn" runat="server" Text="Complain" OnClick="reqModalbtn_Click" />
                       <asp:Button ID="hisModalbtn" Class="tab_btn" runat="server" Text="Settled" OnClick="hisModalbtn_Click" />
                     </div>
-                    <div class="adminblotter" style="margin-top: 60px; margin-left:-240px">
+                  <div class="adminblotter" style="margin-top: 60px; margin-left:-240px">
                         <asp:GridView ID="adminblotterGV" runat="server" CssClass="gridview-style" DataKeyNames="res_id, blotter_id" AutoGenerateColumns="False" OnRowCommand="adminblotterGV_RowCommand" OnRowDataBound="adminblotterGV_RowDataBound"
-                         AllowPaging="True" PageSize="10">
-                            <Columns> 
-                                        <asp:BoundField DataField="blotter_id" HeaderText="ID" />
-                                        <asp:BoundField DataField="complainant" HeaderText="Complainant" />
-                                        <asp:BoundField DataField="compliance" HeaderText="Compliance" />
-                                        <asp:BoundField DataField="incident_date" HeaderText="Date" DataFormatString="{0:MM/dd/yyyy}" />
-                                        <asp:BoundField DataField="incident_time" HeaderText="Time"/>
-                                        <asp:BoundField DataField="suspect" HeaderText="Suspect" />
-                                        <asp:BoundField DataField="started" HeaderText="Scheduled" DataFormatString="{0:MM/dd/yyyy}" />
-                                        <asp:BoundField DataField="status" HeaderText="Status" />
-                                        <asp:TemplateField HeaderText="Details">
-                                            <ItemTemplate>
-                                                <asp:LinkButton ID="viewdetails_btn" runat="server" Text='View' CommandArgument='<%# Eval("blotter_id") %>' CommandName="ViewDetails"><i class="fas fa-user-tie" style="color: #ffaa0d;"></i></asp:LinkButton>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
+                                     AllowPaging="True" OnPageIndexChanging="OnPageIndexChanging" PageSize="1">
+                            <Columns>
+                                <asp:BoundField DataField="blotter_id" HeaderText="ID" />
+                                <asp:BoundField DataField="complainant" HeaderText="Complainant" />
+                                <asp:BoundField DataField="compliance" HeaderText="Compliance" />
+                                <asp:BoundField DataField="incident_date" HeaderText="Date" DataFormatString="{0:d}" />
+                                <asp:BoundField DataField="incident_time" HeaderText="Time"/>
+                                <asp:BoundField DataField="suspect" HeaderText="Suspect" />
+                                <asp:BoundField DataField="started" HeaderText="Scheduled" DataFormatString="{0:d}" />
+                                <asp:BoundField DataField="status" HeaderText="Status" />
+                                <asp:TemplateField HeaderText="Settled">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblEnded" runat="server" Text='<%# Eval("ended", "{0:d}") %>' Visible='<%# Eval("status").ToString() == "Settled" %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Details">
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="viewdetails_btn" runat="server" Text='View' CommandArgument='<%# Eval("blotter_id") %>' CommandName="ViewDetails"><i class="fas fa-user-tie" style="color: #ffaa0d;"></i></asp:LinkButton>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                             </Columns>
-                            <PagerSettings Mode="NumericFirstLast" Position="Bottom" />
-                        </asp:GridView> 
-                    </div>
+                        </asp:GridView>
+                       </div>
                     <div class="historyblotter" style="margin-top: 60px; margin-left: 0px;">
                         <asp:GridView ID="historyadminblotterGV" runat="server" CssClass="gridview-style" DataKeyNames="res_id, blotter_id" AutoGenerateColumns="False" 
                          AllowPaging="True" PageSize="10" OnRowDataBound="historyadminblotterGV_RowDataBound" OnRowCommand="historyadminblotterGV_RowCommand">
@@ -297,7 +292,7 @@
                                         <asp:BoundField DataField="ended" HeaderText="Settled" DataFormatString="{0:MM/dd/yyyy}" />
                                         <asp:BoundField DataField="status" HeaderText="Status" />                          
                             </Columns>
-                            <PagerSettings Mode="NumericFirstLast" Position="Bottom" />
+                            
                         </asp:GridView>
                     </div>
                 </div>
@@ -336,7 +331,7 @@
                         <label for="suspect_tb">Suspect: </label>
                         <asp:TextBox ID="suspect_tb" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
                     </div>
-                    
+
                     <div class="res_data">
                               <label>Status:</label>
                                 <div style="display: flex; align-items: center;">

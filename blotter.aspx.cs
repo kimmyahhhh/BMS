@@ -7,17 +7,25 @@ using System.Web.UI.WebControls;
 using MySql.Data.MySqlClient;
 using System.Data;
 
-namespace bms
+namespace blotter
 {
     public partial class blotter : System.Web.UI.Page
     {
         string connectionString = "server=localhost;database=bms;uid=root;pwd=";
         protected void Page_Load(object sender, EventArgs e)
-        {   adminblotterGV.Visible = true;
+        {
+
+            if (!IsPostBack)
+            {
+                FilterGrid("All");
+            }
+
+            adminblotterGV.Visible = true;
             historyadminblotterGV.Visible = false;
 
-            DisplayUserComplainGV();
-            DisplayHistoryComplainGV();          
+            //DisplayUserComplainGV();
+
+            DisplayHistoryComplainGV();
             scheduledCount.Text = GetScheduledCount().ToString();
             settledCount.Text = GetSettledCount().ToString();
             activeCount.Text = GetActiveCount().ToString();
@@ -156,38 +164,38 @@ namespace bms
             return settledCount;
         }
 
-        private void DisplayUserComplainGV()
-        {
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            try
-            {
-                connection.Open();
-                // Define the query to retrieve data (modify as needed)
-                string query = "SELECT blotter_id, res_id, complainant, compliance, suspect, started, status, incident_date, incident_time FROM blotter WHERE status = 'Active' OR status = 'Scheduled'";
-                MySqlCommand cmd = new MySqlCommand(query, connection);
+        /*  private void DisplayUserComplainGV()
+           {
+               MySqlConnection connection = new MySqlConnection(connectionString);
+               try
+               {
+                   connection.Open();
+                   // Define the query to retrieve data (modify as needed)
+                   string query = "SELECT blotter_id, res_id, complainant, compliance, suspect, started, status, incident_date, incident_time FROM blotter WHERE status = 'Active' OR status = 'Scheduled'";
+                   MySqlCommand cmd = new MySqlCommand(query, connection);
 
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
-                {
-                    // Create a DataTable to hold the data
-                    DataTable dt = new DataTable();
-                    // Fill the DataTable with data from the database
-                    adapter.Fill(dt);
+                   using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                   {
+                       // Create a DataTable to hold the data
+                       DataTable dt = new DataTable();
+                       // Fill the DataTable with data from the database
+                       adapter.Fill(dt);
 
-                    // Bind the modified DataTable to the GridView
-                    adminblotterGV.DataSource = dt;
-                    adminblotterGV.DataBind();
-                }
-            }
-            catch (Exception ex)
-            {
-                mbox.Text = "Error: " + ex.Message;
-                ScriptManager.RegisterStartupScript(this, GetType(), "clearLabel", "clearLabelAfterDelay('mbox', 1000);", true);
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
+                       // Bind the modified DataTable to the GridView
+                       adminblotterGV.DataSource = dt;
+                       adminblotterGV.DataBind();
+                   }
+               }
+               catch (Exception ex)
+               {
+                   mbox.Text = "Error: " + ex.Message;
+                   ScriptManager.RegisterStartupScript(this, GetType(), "clearLabel", "clearLabelAfterDelay('mbox', 1000);", true);
+               }
+               finally
+               {
+                   connection.Close();
+               }
+           }*/
 
         private void DisplayHistoryComplainGV()
         {
@@ -222,6 +230,109 @@ namespace bms
             }
         }
 
+
+        private void FilterGrid(string status, string searchQuery = "")
+        {
+            ViewState["CurrentStatus"] = status;
+            ViewState["CurrentSearchQuery"] = searchQuery;
+
+            string query;
+
+            if (status == "All")
+            {
+                query = "SELECT blotter_id, res_id, complainant, compliance, " +
+                        "NULLIF(incident_date, '0000-00-00') AS incident_date, " +
+                        "NULLIF(incident_time, '0000-00-00 00:00:00') AS incident_time, " +
+                        "NULLIF(started, '0000-00-00') AS started, " +
+                        "NULLIF(ended, '0000-00-00') AS ended, " +
+                        "suspect, status " +
+                        "FROM blotter";
+            }
+            else
+            {
+                query = "SELECT blotter_id, res_id, complainant, compliance, " +
+                        "NULLIF(incident_date, '0000-00-00') AS incident_date, " +
+                        "NULLIF(incident_time, '0000-00-00 00:00:00') AS incident_time, " +
+                        "NULLIF(started, '0000-00-00') AS started, " +
+                        "NULLIF(ended, '0000-00-00') AS ended, " +
+                        "suspect, status " +
+                        "FROM blotter WHERE status = @Status";
+            }
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                query += status == "All" ? " WHERE " : " AND ";
+                query += "(complainant LIKE @SearchQuery OR suspect LIKE @SearchQuery)";
+            }
+
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(query, con))
+                {
+                    if (status != "All")
+                    {
+                        cmd.Parameters.AddWithValue("@Status", status);
+                    }
+
+                    if (!string.IsNullOrEmpty(searchQuery))
+                    {
+                        cmd.Parameters.AddWithValue("@SearchQuery", searchQuery + "%");
+                    }
+
+                    using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
+                        if (dt.Rows.Count > 0)
+                        {
+                            adminblotterGV.DataSource = dt;
+                        }
+                        else
+                        {
+                            adminblotterGV.DataSource = null;
+                        }
+                        adminblotterGV.DataBind();
+                    }
+                }
+            }
+        }
+        protected void lnkPending_Click(object sender, EventArgs e)
+        {
+            adminblotterGV.PageIndex = 0;
+            FilterGrid("Scheduled", ViewState["CurrentSearchQuery"] as string ?? "");
+        }
+
+        protected void lnkActive_Click(object sender, EventArgs e)
+        {
+            adminblotterGV.PageIndex = 0;
+            FilterGrid("Active", ViewState["CurrentSearchQuery"] as string ?? "");
+        }
+
+        protected void lnkEnded_Click(object sender, EventArgs e)
+        {
+            adminblotterGV.PageIndex = 0;
+            FilterGrid("Settled", ViewState["CurrentSearchQuery"] as string ?? "");
+        }
+
+
+        protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            string currentStatus = ViewState["CurrentStatus"] as string ?? "All";
+            string searchQuery = ViewState["CurrentSearchQuery"] as string ?? "";
+
+            adminblotterGV.PageIndex = e.NewPageIndex;
+
+            FilterGrid(currentStatus, searchQuery);
+        }
+
+        protected void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            string currentStatus = ViewState["CurrentStatus"] as string ?? "All";
+            string searchQuery = search.Text;
+
+            FilterGrid(currentStatus, searchQuery);
+        }
+
         protected void save_edited_btn_Click(object sender, EventArgs e)
         {
             if (ViewState["blotter_id"] != null)
@@ -233,8 +344,8 @@ namespace bms
                 string status = blotterstatusList.SelectedValue;
                 DateTime incidentDate;
                 DateTime incidentTime;
-
                 DateTime started;
+
                 bool isDateParsed = DateTime.TryParseExact(started_tb.Text, "MM/dd/yyyy", null, System.Globalization.DateTimeStyles.None, out started);
                 bool isIncidentDateParsed = DateTime.TryParseExact(date_tb.Text, "MM/dd/yyyy", null, System.Globalization.DateTimeStyles.None, out incidentDate);
                 bool isIncidentTimeParsed = DateTime.TryParse(time_tb.Text, out incidentTime);
@@ -242,10 +353,9 @@ namespace bms
                 if (!isDateParsed || !isIncidentDateParsed || !isIncidentTimeParsed)
                 {
                     // Handle the case where any of the dates are not in the expected format
-                    // Display an error message to the user or log the error
                     string script = @"<script type='text/javascript'>
-                    alert('Please enter valid date and time formats.');
-                    </script>";
+            alert('Please enter valid date and time formats.');
+            </script>";
                     ScriptManager.RegisterStartupScript(this, GetType(), "invalidInput", script, false);
                     return;
                 }
@@ -291,19 +401,23 @@ namespace bms
 
                 // Hide the modal
                 ScriptManager.RegisterStartupScript(this, GetType(), "closeModal", "document.getElementById('viewdetailsModal').style.display = 'none';", true);
-                DisplayUserComplainGV();
+
+
+                string currentStatus = ViewState["CurrentStatus"] as string ?? "All";
+                string currentSearchQuery = ViewState["CurrentSearchQuery"] as string ?? "";
+                FilterGrid(currentStatus, currentSearchQuery);
+
                 DisplayHistoryComplainGV();
                 scheduledCount.Text = GetScheduledCount().ToString();
                 settledCount.Text = GetSettledCount().ToString();
                 activeCount.Text = GetActiveCount().ToString();
-                UpdateNotificationCount();
-                LoadNotifications();
             }
             else
             {
                 Console.WriteLine("blotter_id not found in ViewState.");
             }
         }
+
 
         protected void adminblotterGV_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -337,6 +451,7 @@ namespace bms
                             time_tb.Text = reader["incident_time"].ToString();
                             blotterstatusList.SelectedValue = reader["status"].ToString();
                         }
+
                     }
                 }
 
@@ -348,10 +463,15 @@ namespace bms
             }
         }
 
+
+
+
         protected void reqModalbtn_Click(object sender, EventArgs e)
         {
-            adminblotterGV.Visible = true;
+            // adminblotterGV.Visible = true;
             historyadminblotterGV.Visible = false;
+            adminblotterGV.PageIndex = 0;
+             FilterGrid("All", ViewState["CurrentSearchQuery"] as string ?? "");
         }
 
         protected void hisModalbtn_Click(object sender, EventArgs e)
@@ -362,7 +482,49 @@ namespace bms
 
         protected void adminblotterGV_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                // Get the status value of the current row
+                string status = DataBinder.Eval(e.Row.DataItem, "status").ToString();
 
+                // Find the Settled column (ended date label)
+                var lblEnded = e.Row.FindControl("lblEnded") as Label;
+
+                if (lblEnded != null)
+                {
+                    // Show or hide the label based on the status
+                    lblEnded.Visible = status == "Settled";
+                }
+
+                // Hide the entire column if the status is not Settled
+                int columnIndex = GetColumnIndexByName("Settled");
+                if (columnIndex >= 0)
+                {
+                    e.Row.Cells[columnIndex].Visible = status == "Settled";
+                }
+            }
+
+            // Hide the header text of the Settled column if current status is not Settled
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                int columnIndex = GetColumnIndexByName("Settled");
+                if (columnIndex >= 0 && ViewState["CurrentStatus"].ToString() != "Settled")
+                {
+                    e.Row.Cells[columnIndex].Visible = false;
+                }
+            }
+        }
+
+        private int GetColumnIndexByName(string columnName)
+        {
+            foreach (DataControlField column in adminblotterGV.Columns)
+            {
+                if (column.HeaderText == columnName)
+                {
+                    return adminblotterGV.Columns.IndexOf(column);
+                }
+            }
+            return -1;
         }
 
         protected void historyadminblotterGV_RowDataBound(object sender, GridViewRowEventArgs e)

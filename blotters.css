@@ -82,9 +82,9 @@ img {
 .resinfo_lbl {
 }
 
-.search {
+/*.search {
     visibility: hidden;
-}
+}*/
 
 .user {
     position: relative;
@@ -182,11 +182,11 @@ img {
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
 }
 
-.chart .f_info {
-    margin-top: -30px;
-    display: flex;
-    column-gap: 5px;
-}
+    .chart .f_info {
+        margin-top: -30px;
+        display: flex;
+        column-gap: 5px;
+    }
 
 .charts .addresh1 {
     position: absolute;
@@ -198,7 +198,7 @@ img {
 
 .charts .chart {
     margin-top: -40px;
-    display:flex;
+    display: flex;
 }
 
 .res_data label {
@@ -221,7 +221,7 @@ img {
 .saveres_btn {
     width: 100px;
     height: 25px;
-    border:solid;
+    border: solid;
     border-color: red;
     border-radius: 50px;
     background: #ff951c;
@@ -302,6 +302,7 @@ img {
     .cards {
         grid-template-columns: 1fr;
     }
+
     .user {
         width: 40px;
         height: 40px;

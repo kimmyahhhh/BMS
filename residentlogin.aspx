@@ -4,10 +4,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Log-in</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles1.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+         function clearLabelAfterDelay(mbox, delay) {
+            setTimeout(function() {
+                document.getElementById(mbox).innerText = '';
+            }, delay);
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -21,20 +28,23 @@
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
                     <asp:TextBox ID="password" runat="server" type="password" placeholder="Password" ></asp:TextBox>
-                </div>
-                <p class="account-text">Don't have an account? 
-                    <asp:LinkButton ID="su_link" runat="server" PostBackUrl="~/signup.aspx">Sign up</asp:LinkButton>                  
+                </div>        
+                <span></span>
+                <br />
+                <p class="account-text"> 
+                    <asp:LinkButton ID="changeAccount" runat="server" PostBackUrl="~/reset_account.aspx" style="text-decoration: none; color:#ffbc04; cursor: pointer;">Change Username and Password?</asp:LinkButton>                  
                 </p>            
                 <span></span>
-                <div class="g-recaptcha" data-sitekey="6Ld04MQpAAAAAJhoPojzlZF5DipOm_k-sL1NgoKo"></div>
-                <p style="margin-top: 5px;" class="account-text">Sign in with Google?
-                    <asp:LinkButton ID="gsignin" CssClass="google-icon" runat="server">
-                        <i style="color: #ffaa0d; " class="fab fa-google"></i>
-                    </asp:LinkButton>
-                </p>             
+                <br />
+                <div class="g-recaptcha" data-sitekey="6Ld04MQpAAAAAJhoPojzlZF5DipOm_k-sL1NgoKo"></div>            
                 <span></span>
-                <asp:Button ID="reslog_btn" class="btn" runat="server" Text="Sign in" OnClick="reslog_btn_Click" />
-                <asp:Label ID="mbox" runat="server"></asp:Label>
+                <br />
+                <div>
+                    <asp:Button ID="reslog_btn" class="btn" runat="server" Text="Sign in" OnClick="reslog_btn_Click" />
+                    <asp:Button ID="back_btn" class="btn" runat="server" Text="Back" OnClick="back_btn_Click" />
+                </div>
+                <br />
+                <asp:Label ID="mbox" style="display: flex; justify-content: center;" runat="server"></asp:Label>
             </form>
         </div>
     </div>
